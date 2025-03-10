@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public int health { get { return currentHealth; } }
     public int MaxHealth { get { return maxHealth; } }
 
+    // Variables related to temporary invincibility
+    [SerializeField] float timeInvincible = 2.0f;
+    bool isInvincible;
+    float damageCooldown;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +35,8 @@ public class PlayerController : MonoBehaviour
     {
         move = MoveAction.ReadValue<Vector2>();
         //Debug.Log(move);
+
+        UpdateInvincible();
     }
 
     void FixedUpdate()
@@ -39,6 +47,27 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
+        if (amount < 0)
+        {
+            if (isInvincible)
+            {
+                return;
+            }
+            isInvincible = true;
+            damageCooldown = timeInvincible;
+        }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+
+    void UpdateInvincible()
+    {
+        if (isInvincible)
+        {
+            damageCooldown -= Time.deltaTime;
+            if (damageCooldown < 0)
+            {
+                isInvincible = false;
+            }
+        }
     }
 }
