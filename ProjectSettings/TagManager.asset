@@ -41,6 +41,18 @@ TagManager:
   - name: Background
     uniqueID: 2766579207
     locked: 0
+  - name: LowerFloor
+    uniqueID: 455920713
+    locked: 0
+  - name: MidFloor
+    uniqueID: 1874704351
+    locked: 0
+  - name: HighFloor
+    uniqueID: 2071353813
+    locked: 0
+  - name: OnGround
+    uniqueID: 3126305999
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
