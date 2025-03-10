@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [Header("Lives")]
     [SerializeField] int maxHealth = 5;
     int currentHealth;
+    public int health { get { return currentHealth; } }
+    public int MaxHealth { get { return maxHealth; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
