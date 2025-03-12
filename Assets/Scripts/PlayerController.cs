@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move = MoveAction.ReadValue<Vector2>();
-        //Debug.Log(move);
 
         UpdateInvincible();
     }
@@ -57,6 +56,7 @@ public class PlayerController : MonoBehaviour
             damageCooldown = timeInvincible;
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
     }
 
     void UpdateInvincible()
