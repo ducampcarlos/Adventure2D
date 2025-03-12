@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     bool isInvincible;
     float damageCooldown;
 
+    [Space]
+    [Header("Projectile")]
+    public GameObject projectilePrefab;
+
     // Variables related to the player's animation
     Animator animator;
     Vector2 moveDirection = new Vector2(1, 0);
@@ -52,6 +56,11 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", move.magnitude);
 
         UpdateInvincible();
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
+        }
     }
 
     void FixedUpdate()
@@ -86,5 +95,12 @@ public class PlayerController : MonoBehaviour
                 isInvincible = false;
             }
         }
+    }
+
+    void Launch()
+    {
+        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        projectile.Launch(moveDirection, 300);
     }
 }
