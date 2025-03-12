@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float changeTime = 3.0f;
     float timer;
     int direction = 1;
+    bool broken = true;
 
     [Header("Direction")]
     [SerializeField] bool vertical;
@@ -34,6 +35,10 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!broken)
+        {
+            return;
+        }
         Vector2 position = rigidbody2d.position;
 
         if (vertical)
@@ -61,5 +66,12 @@ public class EnemyController : MonoBehaviour
             player.ChangeHealth(-1);
         }
 
+    }
+
+    public void Fix()
+    {
+        broken = false;
+        rigidbody2d.simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }
