@@ -1,0 +1,5 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UnityTechnologies/StarterAsset/Art/SugarLand/UI/UIDialogueBox.png?fileID=21300000&amp;guid=cd17cea45c10d0943a1a8f2485b35902&amp;type=3#UIDialogueBox&quot;); -unity-background-scale-mode: stretch-to-fill;">
+        <engine:Label text="Hey! Help me fix those broken robots!" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 25px; padding-right: 25px; padding-bottom: 25px; padding-left: 25px; -unity-font-definition: resource(&apos;Hierarchy Designer Font Regular&apos;); font-size: 20px; color: rgb(82, 0, 46); white-space: normal;" />
+    </engine:VisualElement>
+</engine:UXML>
