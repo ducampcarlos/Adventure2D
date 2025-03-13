@@ -14,12 +14,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] bool vertical;
 
     Animator animator;
+    AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         timer = changeTime;
     }
 
@@ -73,5 +75,6 @@ public class EnemyController : MonoBehaviour
         broken = false;
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
+        audioSource.Stop();
     }
 }
