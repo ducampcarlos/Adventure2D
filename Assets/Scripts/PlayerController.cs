@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Vector2 move;
 
+    [Header("Actions")]
+    public InputAction talkAction;
+    public InputAction launchAction;
+
     [Space]
     [Header("Lives")]
     [SerializeField] int maxHealth = 5;
@@ -34,6 +38,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         MoveAction.Enable();
+        talkAction.Enable();
+        launchAction.Enable();
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
@@ -57,9 +63,14 @@ public class PlayerController : MonoBehaviour
 
         UpdateInvincible();
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (launchAction.WasPressedThisFrame())
         {
             Launch();
+        }
+        
+        if (talkAction.WasPressedThisFrame())
+        {
+            FindFriend();
         }
     }
 
@@ -104,5 +115,14 @@ public class PlayerController : MonoBehaviour
         projectile.Launch(moveDirection, 300);
 
         animator.SetTrigger("Launch");
+    }
+
+    void FindFriend()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(rb.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("NPC"));
+        if (hit.collider != null)
+        {
+            Debug.Log("Raycast has hit the object " + hit.collider.gameObject);
+        }
     }
 }
