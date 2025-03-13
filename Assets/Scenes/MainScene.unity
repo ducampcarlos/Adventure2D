@@ -23995,6 +23995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b15ff1eb8a10944ebe636a149643942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayTime: 4
 --- !u!1 &988024086
 GameObject:
   m_ObjectHideFlags: 0
@@ -25494,6 +25495,7 @@ GameObject:
   - component: {fileID: 1799318806}
   - component: {fileID: 1799318805}
   - component: {fileID: 1799318808}
+  - component: {fileID: 1799318809}
   m_Layer: 30
   m_Name: NPC
   m_TagString: Untagged
@@ -25639,6 +25641,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0440495, y: 1.44624}
   m_EdgeRadius: 0
+--- !u!114 &1799318809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799318804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745c036c9de2c694ea69888e0e26d10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3225011650076616631
 PrefabInstance:
   m_ObjectHideFlags: 0
