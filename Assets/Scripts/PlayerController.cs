@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
     [Header("Projectile")]
     public GameObject projectilePrefab;
 
+    //[Space]
+    //[Header("Audio")]
+    AudioSource audioSource;
+
     // Variables related to the player's animation
     Animator animator;
     Vector2 moveDirection = new Vector2(1, 0);
@@ -43,6 +47,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -128,5 +133,10 @@ public class PlayerController : MonoBehaviour
                 UIHandler.instance.DisplayDialogue();
             }
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
