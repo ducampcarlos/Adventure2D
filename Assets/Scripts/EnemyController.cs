@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip hitSound;
 
+    [Header("Particles")]
+    [SerializeField] ParticleSystem smokeEffect;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,6 +83,7 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Fixed");
         audioSource.Stop();
         PlaySound(hitSound);
+        smokeEffect.Stop();
     }
 
     // Function to play an audio clip
