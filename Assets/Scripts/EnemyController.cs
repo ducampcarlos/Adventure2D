@@ -14,7 +14,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] bool vertical;
 
     Animator animator;
+
+    [Header("Audio")]
     AudioSource audioSource;
+    [SerializeField] AudioClip hitSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -76,5 +79,12 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
         audioSource.Stop();
+        PlaySound(hitSound);
+    }
+
+    // Function to play an audio clip
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

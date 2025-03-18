@@ -107,6 +107,7 @@ MonoBehaviour:
   speed: 3
   changeTime: 3
   vertical: 0
+  hitSound: {fileID: 8300000, guid: 683e01d57e63fe749866ca4fd3cc424c, type: 3}
 --- !u!95 &214930931973273803
 Animator:
   serializedVersion: 7

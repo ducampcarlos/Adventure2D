@@ -232,6 +232,8 @@ MonoBehaviour:
   timeInvincible: 2
   projectilePrefab: {fileID: 1873827623198755902, guid: a9302fd3959c04542a5654b076156a6f,
     type: 3}
+  hitSound: {fileID: 8300000, guid: c7d3a91ac32abbe47a8931a8ffc37bc6, type: 3}
+  projectileSound: {fileID: 8300000, guid: c87de0cae68cdbb409eec8ba23a860d0, type: 3}
 --- !u!95 &2893397913948641996
 Animator:
   serializedVersion: 7

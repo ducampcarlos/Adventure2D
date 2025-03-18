@@ -30,9 +30,11 @@ public class PlayerController : MonoBehaviour
     [Header("Projectile")]
     public GameObject projectilePrefab;
 
-    //[Space]
-    //[Header("Audio")]
+    [Space]
+    [Header("Audio")]
     AudioSource audioSource;
+    [SerializeField] AudioClip hitSound;
+    [SerializeField] AudioClip projectileSound;
 
     // Variables related to the player's animation
     Animator animator;
@@ -96,6 +98,7 @@ public class PlayerController : MonoBehaviour
             isInvincible = true;
             damageCooldown = timeInvincible;
             animator.SetTrigger("Hit");
+            PlaySound(hitSound);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
@@ -120,6 +123,7 @@ public class PlayerController : MonoBehaviour
         projectile.Launch(moveDirection, 300);
 
         animator.SetTrigger("Launch");
+        PlaySound(projectileSound);
     }
 
     void FindFriend()
@@ -139,4 +143,6 @@ public class PlayerController : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
     }
+
+    
 }
